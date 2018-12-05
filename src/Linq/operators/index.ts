@@ -12,3 +12,4 @@ export { selectMany } from '../internal/operators/selectMany';
 export { take } from '../internal/operators/take';
 export { takeWhile } from '../internal/operators/takeWhile';
 export { concat } from '../internal/operators/concat';
+export { skip } from '../internal/operators/skip';

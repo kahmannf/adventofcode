@@ -1,5 +1,5 @@
 import { Linq, range } from './Linq';
-import { select, where, selectMany, firstOrUndefined, take, takeWhile, concat } from './Linq/operators';
+import { select, where, selectMany, firstOrUndefined, take, takeWhile, concat, skip } from './Linq/operators';
  
 export function entry() {
 
@@ -9,7 +9,8 @@ export function entry() {
   const iterableTest = x.pipe(
     concat(Linq(range(4, 2))),
     select(x => x * x),
-    selectMany(x => function*() { yield x; yield x; }())
+    selectMany(x => function*() { yield x; yield x; }()),
+    skip(3)
   );
 
   const iterator1 = iterableTest[Symbol.iterator]();
