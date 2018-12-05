@@ -1,0 +1,27 @@
+{
+  "name": "adventofcode",
+  "version": "1.0.0",
+  "description": "Playground to solve davent of code challanges",
+  "main": "out/index.js",
+  "scripts": {
+    "start": "npx nodemon --exec npm run compileAndRun",
+    "compile": "tsc",
+    "compileAndRun": "tsc && node out",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "src/**"
+    ],
+    "ext": "ts"
+  },
+  "author": "Felix Kahmann",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^10.12.10",
+    "nodemon": "^1.18.7",
+    "rxjs": "^6.3.3",
+    "tslint": "^5.11.0",
+    "typescript": "^3.2.1"
+  }
+}
