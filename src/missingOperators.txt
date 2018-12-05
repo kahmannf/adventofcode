@@ -1,0 +1,34 @@
+# LinqOperators
+Skip,
+SkipWhile,
+Join,
+GroupJoin,
+OderByDescending,
+ThenBy,
+ThenByDescending,
+Concat,
+Zip,
+Union,
+Intersect,
+Except,
+SequenceEqual?,
+ToArray,
+ToDictionary?,
+Last,
+LastOrDefault,
+Single?,
+SingleOrUndefined?,
+ElementAt,
+ElementAtOrUndefined,
+Any,
+All,
+Contains,
+Sum, //with selector
+Min, //with selector
+Max, //with selector
+Average, //with selector
+
+
+# Iterator-Creation-Functions
+Repeat
+
