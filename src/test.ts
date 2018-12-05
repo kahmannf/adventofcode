@@ -1,12 +1,13 @@
 import { Linq, range } from './Linq';
-import { select, where, selectMany, firstOrUndefined, take, takeWhile } from './Linq/operators';
+import { select, where, selectMany, firstOrUndefined, take, takeWhile, concat } from './Linq/operators';
  
 export function entry() {
 
   console.log('hi');
-  const x = Linq(range(1, 5));
+  const x = Linq(range(1, 3));
 
   const iterableTest = x.pipe(
+    concat(Linq(range(4, 2))),
     select(x => x * x),
     selectMany(x => function*() { yield x; yield x; }())
   );
