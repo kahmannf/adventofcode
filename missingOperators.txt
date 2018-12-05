@@ -1,5 +1,4 @@
 # LinqOperators
-SkipWhile,
 Join,
 GroupJoin,
 OderByDescending,

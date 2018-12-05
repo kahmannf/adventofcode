@@ -1,17 +1,17 @@
 import { Linq, range } from './Linq';
-import { select, where, selectMany, firstOrUndefined, take, takeWhile, concat, skip } from './Linq/operators';
+import { select, where, selectMany, firstOrUndefined, take, takeWhile, concat, skip, skipWhile } from './Linq/operators';
  
 export function entry() {
 
   console.log('hi');
   const x = Linq(range(1, 3));
 
-  const iterableTest = x.pipe(
-    concat(Linq(range(4, 2))),
+  let iterableTest = x.pipe(
     select(x => x * x),
     selectMany(x => function*() { yield x; yield x; }()),
-    skip(3)
   );
+
+  iterableTest = iterableTest.pipe(concat(iterableTest));
 
   const iterator1 = iterableTest[Symbol.iterator]();
 
@@ -22,6 +22,7 @@ export function entry() {
     element = iterator1.next();
   }
 
+  console.log('-'.repeat(60));
 
   const iterator2 = iterableTest[Symbol.iterator]();
 
