@@ -7,7 +7,10 @@
     "start": "npx nodemon --exec npm run compileAndRun",
     "compile": "tsc",
     "compileAndRun": "tsc && node out",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "eval": "npx nodemon --exec npm run compileAndRunEval",
+    "compileAndRunEval": "tsc && node out/evaluation",
+    "test": "rm -rf spec/out && tsc -b tsconfig.spec.json && jasmine",
+    "jasmine-help": "jasmine -h"
   },
   "nodemonConfig": {
     "watch": [
@@ -20,8 +23,11 @@
   "dependencies": {
     "@types/node": "^10.12.10",
     "nodemon": "^1.18.7",
-    "rxjs": "^6.3.3",
     "tslint": "^5.11.0",
     "typescript": "^3.2.1"
+  },
+  "devDependencies": {
+    "@types/jasmine": "^3.3.1",
+    "jasmine": "^3.3.0"
   }
 }

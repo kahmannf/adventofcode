@@ -122,3 +122,4 @@ $RECYCLE.BIN/
 # End of https://www.gitignore.io/api/node,windows,visualstudiocode
 
 out/**
+spec/out/**

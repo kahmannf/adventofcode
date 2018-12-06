@@ -4,6 +4,7 @@ import { Selector } from './../types/selector';
 import { Linq } from '../..';
 import { LinqOperator } from '../LinqOperator';
 import { ArrayGrouping } from '../types/arrayGrouping';
+import { createIterable } from '../util/createIterable';
 
 export function groupBy<T, TGroupKey>(
   keySelector: Selector<T, TGroupKey>,
@@ -11,7 +12,7 @@ export function groupBy<T, TGroupKey>(
   ): LinqOperator<T, LinqObject<ArrayGrouping<TGroupKey, T>>> {
   equals = equals || ((a: TGroupKey, b: TGroupKey) => a === b);
 
-  return (source: LinqObject<T>) => Linq(function* () {
+  return (source: LinqObject<T>) => Linq(createIterable(function* () {
     
     const result: ArrayGrouping<TGroupKey, T>[] = [];
 
@@ -32,5 +33,5 @@ export function groupBy<T, TGroupKey>(
     }
 
     yield* result;
-  }());
+  }));
 }

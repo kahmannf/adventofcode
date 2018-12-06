@@ -1,3 +1,3 @@
 import { LinqObject } from './LinqObject';
 
-export type LinqOperator<T, U> = (x: LinqObject<T>) => U;
+export type LinqOperator<T, TResult> = (source: LinqObject<T>) => TResult;

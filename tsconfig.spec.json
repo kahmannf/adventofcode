@@ -3,7 +3,7 @@
     "module": "commonjs",
     "target": "es5",
     "sourceMap": false,
-    "outDir": "out",
+    "outDir": "spec/out",
     "downlevelIteration": true,
     "lib": [
       "es6"
@@ -11,12 +11,12 @@
     "typeRoots": [
       "node_modules/@types"
     ],
-    "types": ["node"]
+    "types": ["node", "jasmine"]
   },
   "exclude": [
     "node_modules"
   ],
   "include": [
-    "src"
+    "**/*.spec.ts"
   ]
 }

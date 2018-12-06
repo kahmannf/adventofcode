@@ -1,7 +1,7 @@
 export function range(start: number, length: number): Iterable<number> {
 
   if(length < 0) {
-    throw new Error('The \"length\"-parameter must be larger than zero');
+    throw new Error('The \"length\"-parameter must be zero or larger');
   }
 
   return {

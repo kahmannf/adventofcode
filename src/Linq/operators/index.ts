@@ -14,3 +14,6 @@ export { takeWhile } from '../internal/operators/takeWhile';
 export { concat } from '../internal/operators/concat';
 export { skip } from '../internal/operators/skip';
 export { skipWhile } from '../internal/operators/skipWhile';
+export { orderBy, orderByDesc, thenBy, thenByDesc } from '../internal/operators/order-operators';
+export { selectWithIndex } from '../internal/operators/selectWithIndex';
+export { join } from '../internal/operators/join';

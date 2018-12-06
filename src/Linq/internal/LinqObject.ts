@@ -2,12 +2,10 @@ import { LinqOperator as LO } from "./LinqOperator";
 import { pipeFromArray } from "./util/pipe";
 
 export class LinqObject<T> implements Iterable<T> {
-  private constructor(
+  constructor(
     private base: Iterable<T>
   ) {
   }
-
-  private pipeOperations: LO<any, any>[];
 
   static Linq<T>(base: Iterable<T>) {
     return new LinqObject(base);
@@ -33,11 +31,5 @@ export class LinqObject<T> implements Iterable<T> {
   pipe(...operations: LO<any, any>[]): any {
     return pipeFromArray(operations)(this);
   }
-
-
-
-  internalPipe(...operations: LO<any, any>[]): any {
-
-    return pipeFromArray(operations)(this);
-  }
+  
 }
