@@ -2,13 +2,16 @@ import { Leaderboard } from './evaluation/leaderboard';
 import { get, RequestOptions } from "https";
 import { writeFileSync, readFileSync } from "fs";
 
+
+const sessionCookie = readFileSync('./src/session-cookie.txt');
+
 export function getOneInput(day: number, year: number|string) {
 
   const options: RequestOptions = {
     host: 'adventofcode.com',
     path: `/${year}/day/${day}/input`,
     headers: {
-      'Cookie': 'session=53616c7465645f5f534087ba60ab13788be513c83837d8d49e3c1f80bcd960696e7b70b3f13708e64a88d38e39a8eb7a'
+      'Cookie': `session=${sessionCookie}`
     }
   }
 
@@ -38,8 +41,6 @@ export function getOneInput(day: number, year: number|string) {
     reject(err.message);
   }));
 }
-
-const sessionCookie = readFileSync('./src/session-cookie.txt');
 
 export function getLeaderboard<Leaderboard>(year:number|string, id: string|number) {
   const options: RequestOptions = {
