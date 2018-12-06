@@ -61,8 +61,55 @@ export class Challenge6 implements Challenge {
 
     return (counts.filter(x => x !== Infinity).sort((a, b) => b - a)[0]).toString();
   }
+
   solve2(input: string): string {
-    return ""
+    const maxDistanceExclusive = 10000;
+
+    const coords = input.split('\n').map(x => x.trim().split(',').map(x => parseInt(x.trim()))).map(x => ({ x: x[0], y: x[1] }));
+
+    let xmin = Number.MAX_SAFE_INTEGER;
+    let ymin = Number.MAX_SAFE_INTEGER;
+    let xmax = Number.MIN_SAFE_INTEGER;
+    let ymax = Number.MIN_SAFE_INTEGER;
+
+    for(const coord of coords) {
+      if(coord.x < xmin) {
+        xmin = coord.x;
+      }
+
+      if(coord.y < ymin) {
+        ymin = coord.y;
+      }
+
+      if(coord.x > xmax) {
+        xmax = coord.x;
+      }
+
+      if(coord.y > ymax) {
+        ymax = coord.y;
+      }
+    }
+    
+    const validCoords = [];
+
+    for(let x = xmin; x <= xmax; x++) {
+      for(let y = ymin; y <= ymax; y++) {
+
+        let distance = 0;
+
+        for(let i = 0; i < coords.length; i++) {
+          
+          distance += this.getDistance(coords[i], { x, y });
+        }
+
+        if(distance < maxDistanceExclusive) {
+          validCoords.push({x, y});
+        }
+      }
+    }
+
+    return validCoords.length.toString();
+
   }
 
   getDistance(a: Point, b: Point) {
