@@ -6,11 +6,11 @@ import { challenges as challenges18, inputs as inputs18 } from "./2018";
 import { Challenge } from "./challenge";
 import { entry } from './test';
 
-const drawer = new Drawer();
+const drawer = new Drawer(20, 30, 30);
 
 
-entry();
-//challenges();
+//entry();
+challenges();
 
 function challenges() {
   const map15 = mapChallangesToInput(challenges15, inputs15);
