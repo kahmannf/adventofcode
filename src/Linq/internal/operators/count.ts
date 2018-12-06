@@ -1,12 +1,10 @@
 import { LinqOperator } from './../LinqOperator';
 import { Predicate } from './../types/predicate';
 import { LinqObject } from '../..';
-import { where } from './where';
+import { aggregate } from './aggregate';
 
 export function count<T>(predicate?: Predicate<T>): LinqOperator<T, number> {
-  if(predicate) {
-    return (source: LinqObject<T>) => [...source.pipe(where(predicate))].length;
-  } else {
-    return (source: LinqObject<T>) => [...source].length;
-  }
+  predicate = predicate || (x => true);
+  return (source: LinqObject<T>) => source.pipe(aggregate((pv, cv) => predicate(cv) ? ++pv : pv, 0));
+  
 }

@@ -1,6 +1,6 @@
 import { Challenge } from './../../challenge';
 import { Linq } from '../../Linq';
-import { select, count, groupBy } from '../../Linq/operators';
+import { select, count, groupBy, where, aggregate } from '../../Linq/operators';
 export class Challenge5 implements Challenge {
   day = 5;
 
@@ -11,6 +11,7 @@ export class Challenge5 implements Challenge {
       count(x => this.isNiceString(x))
     ).toString();
   }
+
   solve2(input: string): string {
     return Linq(input.split('\n')).pipe(
       select(x => x.trim()),
@@ -36,39 +37,56 @@ export class Challenge5 implements Challenge {
     return vowelCount > 2 && hasDoubleLetter && notContainsForbidden;
   }
 
-  isNiceString2(s: string): boolean
-  {
-      const arr1: string[] = [], arr2: string[] = [];
+  isNiceString2(s: string): boolean {
 
-      for(let i = 0; i < s.length; i += 2)
-      {
-          if(i + 1 < s.length)
-          arr1.push(s[i] + s[i + 1]);
+    //const arr1: string[] = [], arr2: string[] = [];
+    // for (let i = 0; i < s.length; i += 2) {
+    //   if (i + 1 < s.length)
+    //     arr1.push(s[i] + s[i + 1]);
 
-          if(i + 2 < s.length)
-          {
-              arr2.push(s[i + 1] + s[i + 2]);
-          }
+    //   if (i + 2 < s.length) {
+    //     arr2.push(s[i + 1] + s[i + 2]);
+    //   }
+    // }
+
+
+    // let doubleLetters = this.checkForReapeatingDoubleLetters(arr1, arr2);
+
+    // if (!doubleLetters)
+    //   doubleLetters = this.checkForReapeatingDoubleLetters(arr2, arr1);
+    try {
+      const pairs: string[] = [];
+
+      for (let x = 97; x < 123; x++) {
+        for (let y = 97; y < 123; y++) {
+          pairs.push(String.fromCharCode(x) + String.fromCharCode(y));
+        }
       }
 
-      let doubleLetters = this.checkForReapeatingDoubleLetters(arr1, arr2);
+      let doubleLetters = false;
 
-      if(!doubleLetters)
-          doubleLetters = this.checkForReapeatingDoubleLetters(arr2, arr1);
-
+      for (const pair of pairs) {
+        const match = s.match(new RegExp(`(${pair}){1}`, 'g'));
+        if (match && match.length > 1) {
+          doubleLetters = true;
+          break;
+        }
+      }
 
       let hasSeperatedDoubleLetter = false;
 
-      for (let i = 0; i < s.length - 2; i++)
-      {
-          if (s[i] == s[i + 2])
-          {
-              hasSeperatedDoubleLetter = true;
-              break;
-          }
+      for (let i = 0; i < s.length - 2; i++) {
+        if (s[i] == s[i + 2]) {
+          hasSeperatedDoubleLetter = true;
+          break;
+        }
       }
 
       return hasSeperatedDoubleLetter && doubleLetters;
+    }
+    catch (error) {
+      console.log(error);
+    }
   }
 
   checkForReapeatingDoubleLetters(arr1: string[], arr2: string[]): boolean {
