@@ -1,7 +1,7 @@
 import { existsSync, readFileSync } from "fs";
 
 
-export function fileLoader(year: number, day: number, test: boolean = false) {
+export function fileLoader(year: number|string, day: number, test: boolean = false) {
   const path = `./src/${year}/inputs/input${day}${ test ? '_test': '' }.txt`;
 
   if(existsSync(path)) {
