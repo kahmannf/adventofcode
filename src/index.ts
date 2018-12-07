@@ -1,8 +1,8 @@
 import { Drawer } from './drawer';
-import { challenges as challenges15, inputs as inputs15 } from "./2015";
-import { challenges as challenges16, inputs as inputs16 } from "./2016";
-import { challenges as challenges17, inputs as inputs17 } from "./2017";
-import { challenges as challenges18, inputs as inputs18 } from "./2018";
+import { challenges as challenges15 } from "./2015";
+import { challenges as challenges16 } from "./2016";
+import { challenges as challenges17 } from "./2017";
+import { challenges as challenges18 } from "./2018";
 import { Challenge } from "./challenge";
 import { entry } from './test';
 import { fileLoader } from './fileLoader';
@@ -10,7 +10,7 @@ import { getOneInput } from './fetch';
 import { Linq } from './Linq';
 import { where } from './Linq/operators';
 
-const drawer = new Drawer(20, 25, 25);
+const drawer = new Drawer(20, 26, 26);
 
 const argument = process.argv.slice(2);
 const years = argument.length ? argument : ['2015', '2016', '2017', '2018']

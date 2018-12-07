@@ -12,10 +12,9 @@ export function distinct<T>(equals?: Equals<T>): LinqOperator<T, LinqObject<T>> 
       equals = equals || ((a: T, b: T) => a === b);
 
       for (const val of source) {
-        let val2 = {};
-        Object.assign(val2, val);
+        
         if(!all.some(x => equals(x, val))) {
-          all.push(val2);
+          all.push(val);
           yield val;
         } 
       }
