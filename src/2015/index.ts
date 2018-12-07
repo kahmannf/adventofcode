@@ -56,32 +56,3 @@ export const challenges: Challenge[] = [
 
 const year = 2015;
 
-export const inputs: string[] = [
-  undefined,
-  fileLoader(year, 1),
-  fileLoader(year, 2),
-  fileLoader(year, 3),
-  fileLoader(year, 4),
-  fileLoader(year, 5, true),
-  fileLoader(year, 6),
-  fileLoader(year, 7),
-  fileLoader(year, 8),
-  fileLoader(year, 9),
-  fileLoader(year, 10),
-  fileLoader(year, 11),
-  fileLoader(year, 12),
-  fileLoader(year, 13),
-  fileLoader(year, 14),
-  fileLoader(year, 15),
-  fileLoader(year, 16),
-  fileLoader(year, 17),
-  fileLoader(year, 18),
-  fileLoader(year, 19),
-  fileLoader(year, 20),
-  fileLoader(year, 21),
-  fileLoader(year, 22),
-  fileLoader(year, 23),
-  fileLoader(year, 24),
-  fileLoader(year, 25)
-];
-

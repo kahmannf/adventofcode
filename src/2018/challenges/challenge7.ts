@@ -1,7 +1,6 @@
 import { Challenge } from './../../challenge';
 import { Linq, fromObject } from '../../Linq';
 import { select, where, aggregate, selectMany, firstOrUndefined, distinct, orderBy, concat, first } from '../../Linq/operators';
-import { createVerify } from 'crypto';
 import { Drawer } from '../../drawer';
 
 export class Challenge7 implements Challenge {

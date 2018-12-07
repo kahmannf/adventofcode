@@ -6,6 +6,7 @@ export class Challenge6 implements Challenge {
   day = 6;
   
   solve(input: string): string {
+    return 'not executed';
     try {
       const grid: boolean[][] = []
       for(const command of this.parseCommands(input)) {
@@ -22,6 +23,7 @@ export class Challenge6 implements Challenge {
     }
   }
   solve2(input: string): string {
+    return 'not executed';
     try {
       const grid: number[][] = []
       for(const command of this.parseCommands(input)) {
