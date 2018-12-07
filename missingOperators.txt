@@ -1,6 +1,4 @@
 # LinqOperators
-Join,
-GroupJoin,
 OderByDescending,
 ThenBy,
 ThenByDescending,

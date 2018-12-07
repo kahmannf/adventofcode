@@ -1,5 +1,6 @@
 import { LinqOperator as LO } from "./LinqOperator";
 import { pipeFromArray } from "./util/pipe";
+import { Selector } from "./types/selector";
 
 export class LinqObject<T> implements Iterable<T> {
   constructor(
@@ -32,4 +33,16 @@ export class LinqObject<T> implements Iterable<T> {
     return pipeFromArray(operations)(this);
   }
   
+  toObject<TKey extends number | string | symbol>(
+    keySelector: Selector<T, TKey >
+  ): { [key in TKey]: T } {
+
+    const result: { [key in TKey]: T } = <any>{};
+
+    for(const item of this) {
+      result[keySelector(item)] = item;
+    }
+
+    return result;
+  }
 }
