@@ -10,17 +10,6 @@ import { getOneInput } from './fetch';
 import { Linq } from './Linq';
 import { where } from './Linq/operators';
 
-const drawer = new Drawer(20, 26, 26);
-
-const argument = process.argv.slice(2);
-const years = argument.length ? argument : ['2015', '2016', '2017', '2018'];
-
-for (let i = 0; i < years.length; i++) {
-  if (years[i].length === 2) {
-    years[i] = '20' + years[i];
-  }
-}
-
 const map: { [year in number]: Challenge[] } = {
   2015: challenges15,
   2016: challenges16,
@@ -28,6 +17,18 @@ const map: { [year in number]: Challenge[] } = {
   2018: challenges18,
   2019: challenges19,
 };
+
+const drawer = new Drawer(20, 26, 26);
+
+const argument = process.argv.slice(2);
+const years = argument.length ? argument : Object.keys(map).map(x => x.toString());
+
+for (let i = 0; i < years.length; i++) {
+  if (years[i].length === 2) {
+    years[i] = '20' + years[i];
+  }
+}
+
 
 new Promise<{ [year in number]: [Challenge, string][] }>((resolve, reject) => {
   const results: { [year in number]: [Challenge, string][] } = {};
