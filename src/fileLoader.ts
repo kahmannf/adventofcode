@@ -1,13 +1,12 @@
-import { existsSync, readFileSync } from "fs";
+import { existsSync, readFileSync } from 'fs';
 
 
 export function fileLoader(year: number|string, day: number, test: boolean = false) {
-  const path = `./src/${year}/inputs/input${day}${ test ? '_test': '' }.txt`;
+  const path = `./src/${year}/inputs/input${day}${ test ? '_test' : '' }.txt`;
 
-  if(existsSync(path)) {
+  if (existsSync(path)) {
     return readFileSync(path).toString('utf8');
   } else {
     return undefined;
   }
-
 }

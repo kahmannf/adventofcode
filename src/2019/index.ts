@@ -54,7 +54,7 @@ export const challenges: Challenge[] = [
   new Challenge25()
 ];
 
-const year = 2018;
+const year = 2019;
 
 export const inputs: string[] = [
   undefined,
