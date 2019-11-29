@@ -125,3 +125,4 @@ out/**
 spec/out/**
 
 session-cookie.txt
+package-lock.json
